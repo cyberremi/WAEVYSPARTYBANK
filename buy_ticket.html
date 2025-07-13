@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Select Ticket | WAEVY'S POOL PARTY</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+      min-height: 100vh;
+    }
+video {
+position: absolute;
+left: 0;
+right: 0;
+width: 96%;
+height: 95%;
+object-fit: cover;
+margin: auto;
+border-radius: 0px 20px;
+top: 5rem;
+z-index: -1;
+}
+    h2 {
+      margin-bottom: 30px;
+      text-align: center;
+      font-size: 2rem;
+    }
+
+    .ticket-options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      width: 100%;
+      max-width: 1100px;
+    }
+
+    .ticket-card {
+      background: #1e1e2f;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 0 12px rgba(0, 242, 254, 0.3);
+      text-align: center;
+      flex: 1 1 300px;
+      max-width: 330px;
+      min-width: 260px;
+      transition: transform 0.3s ease;
+    }
+
+    .ticket-card:hover {
+      transform: scale(1.03);
+    }
+
+    .ticket-card h3 {
+      margin-bottom: 10px;
+      font-size: 1.4rem;
+    }
+
+    .ticket-card p {
+      font-size: 1rem;
+      margin: 6px 0;
+    }
+
+    .ticket-card button {
+      margin-top: 15px;
+      padding: 12px;
+      width: 100%;
+      background: #00f2fe;
+      color: #000;
+      font-weight: bold;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      font-size: 1rem;
+    }
+
+    .ticket-card button:hover {
+      background: #00c4cc;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px 15px;
+      }
+
+      h2 {
+        font-size: 1.6rem;
+      }
+
+      .ticket-card {
+        flex: 1 1 90%;
+        max-width: 95%;
+        min-width: unset;
+      }
+
+      .ticket-card h3 {
+        font-size: 1.2rem;
+      }
+
+      .ticket-card p,
+      .ticket-card button {
+        font-size: 0.95rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h2 {
+        font-size: 1.4rem;
+      }
+
+      .ticket-card {
+        padding: 20px;
+      }
+
+      .ticket-card button {
+        font-size: 0.95rem;
+        padding: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h2>Choose Your Ticket Type</h2>
+
+  <div class="ticket-options">
+    <div class="ticket-card">
+      <h3>Regular</h3>
+      <p>Access to main party</p>
+      <p><strong>₦5,000</strong></p>
+      <button onclick="selectTicket('Regular', 5000)">Select</button>
+    </div>
+    <div class="ticket-card">
+      <h3>VIP</h3>
+      <p>Priority access, Free drink</p>
+      <p><strong>₦20,000</strong></p>
+      <button onclick="selectTicket('VIP', 20000)">Select</button>
+    </div>
+    <div class="ticket-card">
+      <h3>VVIP</h3>
+      <p>Private Lounge, Backstage pass</p>
+      <p><strong>₦50,000</strong></p>
+      <button onclick="selectTicket('VVIP', 50000)">Select</button>
+    </div>
+  </div>
+<div class="video-container">
+  <video
+    id="introVideo"
+    muted
+    playsinline
+    loop
+    preload="auto"
+    poster="fallback.jpg" >
+    <source src="video2.mp4" type="video/mp4" />
+  </video>
+</div>
+
+  <script>
+    function selectTicket(type, price) {
+      window.location.href = `payment.html?ticketType=${type}&price=${price}`;
+    }
+  </script>
+         <script>
+  window.addEventListener("load", function () {
+    const video = document.getElementById("introVideo");
+    video.play().catch(error => {
+      console.log("Autoplay blocked:", error);
+    });
+  });
+</script>
+</body>
+</html>

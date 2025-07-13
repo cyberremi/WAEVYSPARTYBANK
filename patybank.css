@@ -1,0 +1,521 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+html,body {
+   scroll-behavior: smooth;
+   margin: 0;
+   padding: 0;
+   max-width: 100%;
+   min-width: 100%;
+
+
+}
+body{
+    box-sizing: border-box;
+  background-color: paleturquoise;
+    color: black;
+    
+}
+.content{
+    display: flex;
+     width: 80%;
+}
+header{
+    display: flex;
+    background-color: paleturquoise;
+    height: 5rem;
+    align-items: center;
+    z-index: 99999;
+    position: fixed;
+    width: 100%;
+    justify-content: space-around;
+}
+header h1{
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  padding: 0 100px;
+  padding-left: 20px;
+  font-weight: 200;
+  
+}
+video {
+left: 0;
+right: 0;
+width: 100%;
+height: 95%;
+object-fit: cover;
+margin: auto;
+border-radius: 0px 20px;
+top: 5rem;
+position: absolute;
+}
+
+.but1 {
+padding: 20px;
+border-radius: 10px;
+border: 3px solid gray;
+font-size: 15px;
+font-family: 'Courier New', Courier, monospace;
+
+
+}
+nav a {
+    text-decoration: none;
+    color: black;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding: 8px;
+
+}
+header p {
+  position: relative;
+  right: 170px;
+  font-size: 12px;
+  top: 19px;
+  font-style: italic;
+  
+}
+.intro {
+    z-index: 99;
+    position: absolute;
+  font-size: 80px;
+  left: 6rem;
+  top: 150px;
+  color:  rgb(229, 103, 6);
+  text-shadow: 4px 4px 10px black;
+  font-weight: 600;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+
+}
+.inspan {
+    color: white;
+
+}
+.p1 {
+    z-index: 99;
+  position: absolute;
+    font-size: 25px;
+    top: 21rem;
+    left: 10rem;
+    
+    color: white;
+     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+}
+.content button {
+    z-index: 99;
+    position: absolute;
+    padding: 25px 40px;
+    background-color:  black;
+    border: 3px solid rgb(235, 233, 233);
+    color: rgb(213, 211, 211);
+    bottom: 8rem;
+    border-radius: 15px;
+    left: 30rem;
+}
+  .content button:hover {
+
+    background-color:rgb(111, 111, 130);
+    transition: 1s ease;
+  }
+  .p4 {
+     font-size: 17px;
+     padding-top: 34px;
+     letter-spacing: 0.5px;
+     padding-left: 60px;
+     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+
+}
+
+  .button2 { 
+    display: flex;
+   width: 65%;
+   z-index: 66;
+   background-color: white;
+   position: absolute;
+   height: 80px;
+   bottom:  0rem;
+   border-radius: 35px;
+   left: 10rem;
+   box-shadow: 5px 5px 5px 5px black;
+   padding: 2px;
+   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 100;
+    font-size: small;
+  }
+
+  .button2 img {
+    width: 110px;
+    border-radius: 80%;
+    scale: 0.8;
+
+  }
+  .waevy {
+
+    color: rgb(229, 103, 6);
+    font-weight: 600;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+     text-shadow: 4px 4px 10px
+     black;
+
+  } 
+
+  /* Preloader Styles */
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #0f2027;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+}
+#About_us img {
+    width: 60%;
+     
+    position: relative;
+    border-radius: 30px;
+    display: flex;
+    padding: 60px 0;
+     margin: auto;
+     
+}
+ 
+#About_us {
+  width: 100%;
+  height: 500rem;
+}
+.pp {
+  background-color: white;
+  padding: 40px 100px;
+  border-radius: 30px;
+  letter-spacing: 0.4px;
+  line-height: 30px;
+  font-family: sans-serif;
+  font-size: 18px;
+}
+
+.footer {
+  background: #000;
+  color: #fff;
+  padding: 60px 20px;
+  font-family: 'Segoe UI', sans-serif;
+  margin-top: 60px;
+  position: relative;
+  top: 195rem;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-left,
+.footer-center,
+.footer-right {
+  flex: 1 1 300px;
+  margin-bottom: 20px;
+}
+
+.footer-left h2 {
+  color: #00eaff;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.footer-left p {
+  color: #ccc;
+  line-height: 1.6;
+}
+
+.footer-center h3,
+.footer-right h3 {
+  color: #00eaff;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.footer-center ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-center ul li {
+  margin-bottom: 10px;
+}
+
+.footer-center ul li a {
+  color: #ccc;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.footer-center ul li a:hover {
+  color: #00eaff;
+  text-shadow: 0 0 10px #00eaff;
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px;
+}
+
+.social-icons a img {
+  width: 28px;
+  height: 28px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  filter: brightness(0.8);
+}
+
+.social-icons a:hover img {
+  transform: scale(1.1);
+  filter: brightness(1.2);
+}
+
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .footer-left,
+  .footer-center,
+  .footer-right {
+    margin-bottom: 30px;
+  }
+}
+
+.abu {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.loader-text h2 {
+  color: #fff;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 1.2rem;
+  margin-top: 15px;
+  text-align: center;
+}
+
+
+ @media (max-width: 768px) {
+  body{
+   max-width: auto;
+    overflow-x: hidden;
+    
+  }
+   .intro {
+     font-size: 50px;
+     left: 3rem;
+     top: 100px;
+   }
+   .p4 {
+      font-size: 16px;
+      padding: 21px;
+      letter-spacing: 0.5px;
+   }
+   .p1 {
+     font-size: 35px;
+     top: 18rem;
+     left: 5rem;
+   }
+   .content button {
+     padding: 15px 30px;
+     left: 20rem;
+   }
+  header p {
+padding-left: 124px;
+  }
+#About_us {
+  height: 500rems;
+}
+    
+     .button2 {
+  position: absolute; /* or fixed if you want it pinned to the viewport */
+  top: 95%;
+  left: 55%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  padding: 20px;
+  background-color: rgb(227, 227, 219); /* optional */
+  border-radius: 35px; /* optional */
+  box-shadow: 5px 5px 5px 5px black; /* optional */
+}
+
+   .waevy {
+     font-size: 24px;
+   }
+   video {
+  width: 110%;
+  height: 100%;
+  object-fit: cover;
+   left: 0;
+   right: 0;
+   }
+.a1{
+  display: none;
+}
+    header h1 {
+      font-size: 15px;
+      padding: 0 20px;
+    }
+    }
+  
+
+    @media (max-width: 480px){
+
+      header p {
+        padding-left: 15px;
+        width: 100px;
+        
+
+      }
+      header button {
+        padding-left: 152px;
+        width: 100px;
+        display: none;
+      }
+      .but1 {
+  margin-bottom: 100px;
+  margin-left: -27px;
+}
+
+#About_us {
+    position: absolute;
+    width: 100%;
+    height: 1000px;
+      bottom: 10rem;
+       background-color: white;
+       border-radius: 30px;
+       left: 22px;
+       top: 60rem;
+       padding: 0;
+       margin: 0;
+       box-sizing: border-box;
+      
+margin-bottom: 0;
+}
+
+  .footer {
+    margin-left: 0px;
+    margin-right: -40px;
+  }
+    }
+  .container1 {
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      
+  }
+  #About_us img {
+    border-radius: 20px;
+    width: 100%;
+    height: auto;
+  }
+  .button2 {
+    position: absolute;
+    top: 95%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    padding: 20px;
+    background-color: white; /* optional */
+    border-radius: 35px; /* optional */
+    box-shadow: 5px 5px 5px 5px black; /* optional */
+    font-family: 'Courier New', Courier, monospace;
+  }
+  @media (min-width: 480px){
+#About_us {
+    position: absolute;
+    width: 100%;
+    height: 100vw;
+      bottom: 10rem;
+       background-color: white;
+       border-radius: 30px;
+       left: 8px;
+       top: 47rem;
+       padding: 0;
+       margin: 0;
+       box-sizing: border-box;
+}
+
+  
+.button2{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: -49px;
+
+}
+}
+  @media (min-width: 773px){
+    #About_us {
+      top: 40rem;
+      height: 1000px;
+    
+    }
+    .footer {
+  background: #000;
+  color: #fff;
+  padding: 60px 20px;
+  font-family: 'Segoe UI', sans-serif;
+  margin-top: 60px;
+  position: relative;
+  top: 235rem;
+}
+    
+  }
+  #About_us, p h3 h2 {
+      font-size: 20px;
+      padding: 10px;
+      letter-spacing: 0.5px;
+      text-align: center;
+
+
+
+  }
+  .content4{
+     color: #000;
+     font: 1.1em sans-serif;
+     margin-top: 70px;
+     margin-bottom: 70px;
+     font-weight: 600;
+     text-align: center;
+
+  }
+  .span {
+
+    color: rgb(229, 103, 6);
+    
+    font-weight: 200;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 34px;
+    
+
+  }
+
+  

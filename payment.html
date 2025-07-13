@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Payment | WAEVY'S POOL PARTY</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #121212;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 40px 20px;
+      min-height: 100vh;
+    }
+
+    .payment-box {
+      background: #1e1e2f;
+      padding: 25px 20px;
+      border-radius: 10px;
+      width: 100%;
+      max-width: 450px;
+      text-align: center;
+      box-shadow: 0 0 15px rgba(0, 242, 254, 0.3);
+    }
+
+    h2 {
+      margin-bottom: 10px;
+      font-size: 1.6rem;
+    }
+
+    p {
+      font-size: 0.95rem;
+      margin: 10px 0;
+    }
+
+    input,
+    select,
+    button {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      font-size: 1rem;
+      border-radius: 6px;
+      border: none;
+    }
+
+    button {
+      background: #00f2fe;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: #00c2d3;
+    }
+
+    .section {
+      margin-top: 20px;
+      padding: 15px;
+      background: #2c2c3d;
+      border-radius: 10px;
+      display: none;
+    }
+
+    .section p {
+      text-align: left;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 480px) {
+      h2 {
+        font-size: 1.4rem;
+      }
+
+      .payment-box {
+        padding: 20px 15px;
+      }
+
+      input,
+      select,
+      button {
+        padding: 10px;
+        font-size: 0.95rem;
+      }
+
+      .section p {
+        font-size: 0.85rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="payment-box">
+    <h2>Complete Payment</h2>
+    <p id="ticketInfo"></p>
+
+    <input type="text" id="name" placeholder="Your Name" />
+    <input type="email" id="email" placeholder="Your Email" />
+
+    <select id="method" onchange="toggleMethod()">
+      <option value="">Select Payment Method</option>
+      <option value="paystack">Proceed with payment</option>
+ 
+    </select>
+
+    <!-- OPay Section -->
+    <div id="opaySection" class="section">
+      <p>Click the button below to proceed to OPay Payment:</p>
+      <button onclick="payWithOpay()">Pay with OPay</button>
+    </div>
+
+    <!-- Bank Transfer Section -->
+    <div id="bankSection" class="section">
+      <p><strong>Transfer ₦<span id="nairaAmount">0</span> to:</strong><br>
+        Bank: GTBank<br>
+        Account Name: Waevy Events<br>
+        Account Number: 0123456789
+      </p>
+      <p>After payment, click below to confirm via WhatsApp:</p>
+      <button onclick="redirectToWhatsApp()">Confirm & Get Ticket</button>
+    </div>
+
+    <!-- Paystack Section -->
+    <div id="paystackSection" class="section">
+      <p>Click the button below to pay securely:</p>
+      <button onclick="payWithPaystack()">Proceed with Payment</button>
+    </div>
+  </div>
+
+  <!-- PAYSTACK SCRIPT -->
+  <script src="https://js.paystack.co/v1/inline.js"></script>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const ticketType = params.get('ticketType');
+    const price = params.get('price');
+
+    document.getElementById("ticketInfo").innerText = `Ticket: ${ticketType} - ₦${price}`;
+    document.getElementById("nairaAmount").innerText = parseInt(price);
+
+    function toggleMethod() {
+      const method = document.getElementById("method").value;
+      document.getElementById("opaySection").style.display = method === "opay" ? "block" : "none";
+      document.getElementById("bankSection").style.display = method === "bank" ? "block" : "none";
+      document.getElementById("paystackSection").style.display = method === "paystack" ? "block" : "none";
+    }
+
+    function payWithOpay() {
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      if (!name || !email) return alert("Enter name and email before payment.");
+      const ticketID = 'WAEVY-' + Math.floor(100000 + Math.random() * 900000);
+      window.location.href = `ticket.html?status=paid&name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&id=${ticketID}&ticketType=${ticketType}`;
+    }
+
+    function redirectToWhatsApp() {
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const msg = `Hello, I just paid via bank transfer.\nName: ${name}\nEmail: ${email}\nTicket: ${ticketType}`;
+      const phone = "2349037443047";
+      window.location.href = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
+    }
+
+    function payWithPaystack() {
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      if (!name || !email) return alert("Enter name and email before payment.");
+      const amount = parseInt(price) * 100;
+      const ticketID = "WAEVY-" + Math.floor(100000 + Math.random() * 900000);
+
+      const handler = PaystackPop.setup({
+        key: 'pk_live_dfa8a17c2e1b5a0c597d8794bc4a19ff96281996',
+        email: email,
+        amount: amount,
+        currency: "NGN",
+        ref: ticketID,
+        metadata: {
+          custom_fields: [
+            { display_name: "Full Name", variable_name: "full_name", value: name },
+            { display_name: "Ticket Type", variable_name: "ticket_type", value: ticketType }
+          ]
+        },
+        callback: function(response) {
+          document.body.innerHTML = "<h2 style='color:white;'>Processing your ticket...</h2>";
+          setTimeout(() => {
+            window.location.href = `ticket.html?status=paid&id=${ticketID}&name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&ticketType=${ticketType}`;
+          }, 1000);
+        },
+        onClose: function() {
+          alert("Transaction cancelled.");
+        }
+      });
+
+      handler.openIframe();
+    }
+  </script>
+</body>
+</html>
